@@ -1,6 +1,6 @@
 # auth0-api-tokens ![build status](https://travis-ci.org/auth0/auth0-api-tokens.svg?branch=master)
 
-Library that given a Auth0 global client credentials allows users to generate JWT tokens for API v2.
+Library that given Auth0 global client credentials allows users to generate JWT tokens for API v2.
 
 You can read more about API v2 tokens in [this blog post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) and in the [API explorer](https://docs.auth0.com/apiv2).
 
