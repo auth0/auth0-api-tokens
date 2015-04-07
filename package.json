@@ -1,0 +1,11 @@
+{
+  "name": "auth0-api-tokens",
+  "version": "1.0.0",
+  "description": "Library that given a Auth0 global client credentials allows users to generate JWT tokens for API v2",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Auth0",
+  "license": "MIT"
+}
