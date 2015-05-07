@@ -14,14 +14,17 @@ npm i auth0-api-tokens
 var TOKEN_EXPIRATION_IN_SECONDS = 3600;
 
 var createToken = require('auth0-api-tokens')({
-    clientId: '{YOUR_GLOBAL_CLIENT_ID}',
-    clientSecret: '{YOUR_GLOBAL_CLIENT_Secret}',
-}, TOKEN_EXPIRATION_IN_SECONDS)
+  clientId: '{YOUR_GLOBAL_CLIENT_ID}',
+  clientSecret: '{YOUR_GLOBAL_CLIENT_Secret}',
+})
 
 // each key is an entity, each array element is an action
 var token = createToken({
+	scopes: {
     users: ['read', 'write'],
     clients: ['delete']
+	},
+	lifetimeInSeconds: TOKEN_EXPIRATION_IN_SECONDS
 });
 
 console.log(token); // 'ey...'

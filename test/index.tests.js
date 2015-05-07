@@ -10,9 +10,15 @@ describe('token creation', function(){
   var token, decodedToken, header, payload;
   before(function(){
     token = createToken({
-      users: [ 'read', 'update' ],
-      clients: [ 'delete' ]
-    }, 3600);
+      scopes: {
+        users: [ 'read', 'update' ],
+        clients: [ 'delete' ]
+      },
+      lifetimeInSeconds: 3600,
+      extra_claims: {
+        foo: 'bar'
+      }
+    });
 
     decodedToken = jws.decode(token);
     header = decodedToken.header;
@@ -45,5 +51,9 @@ describe('token creation', function(){
 
   it('should expire in 3600 seconds', function(){
     expect(payload.iat + 3600).to.equal(payload.exp);
+  });
+
+  it('should set extra claims', function(){
+    expect(payload.foo).to.equal('bar');
   });
 });
