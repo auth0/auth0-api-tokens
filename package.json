@@ -9,11 +9,11 @@
   "author": "Auth0",
   "license": "MIT",
   "dependencies": {
-    "jsonwebtoken": "^4.2.2"
+    "jsonwebtoken": "^5.4.0"
   },
   "devDependencies": {
     "chai": "^2.2.0",
-    "jws": "^2.0.0",
+    "jws": "^3.1.0",
     "mocha": "^2.2.1"
   }
 }
