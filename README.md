@@ -2,6 +2,8 @@
 
 Library that given Auth0 global client credentials allows users to generate JWT tokens for API v2.
 
+> The Auth0 global client ID and secret are the same thing as the API Key and Secret found in the [Auth0 API Explorer](https://auth0.com/docs/api/v2).
+
 You can read more about API v2 tokens in [this blog post](https://auth0.com/blog/2014/12/02/using-json-web-tokens-as-api-keys/) and in the [API explorer](https://docs.auth0.com/apiv2).
 
 ## Installation
@@ -21,7 +23,7 @@ var createToken = require('auth0-api-tokens')({
 // each key is an entity, each array element is an action
 var token = createToken({
 	scopes: {
-    users: ['read', 'write'],
+    users: ['read', 'update'],
     clients: ['delete']
 	},
 	lifetimeInSeconds: TOKEN_EXPIRATION_IN_SECONDS
