@@ -1,9 +1,11 @@
 var expect = require('chai').expect;
-var jws  = require('jws');
+var jwt = require('jsonwebtoken');
+var jws = require('jws');
 
+var clientSecret = '3IbdgWA2kUk4MbIf1-17J5JjpcJDwOqFsVQ2TnrrzsVvwPTE84wNoEX8EdPpsn7F';
 var createToken = require('..')({
   clientId: 'my_client',
-  clientSecret: '3IbdgWA2kUk4MbIf1-17J5JjpcJDwOqFsVQ2TnrrzsVvwPTE84wNoEX8EdPpsn7F'
+  clientSecret: clientSecret
 });
 
 describe('token creation', function(){
@@ -55,5 +57,9 @@ describe('token creation', function(){
 
   it('should set extra claims', function(){
     expect(payload.foo).to.equal('bar');
+  });
+
+  it('should set a valid signature', function () {
+    expect(jwt.verify(token, new Buffer(clientSecret, 'base64'))).to.be.a('object');
   });
 });
